@@ -49,7 +49,46 @@
 						</li>
 					</a>
 
+<!-- Start of first page -->
+		<div data-role="page" id="firstActivity">
 
+			<div data-role="header">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+				<h1>Informacje o zabytkach</h1>
+			</div>
+			<div class="options">
+    			<div class="col1">
+    				<form class="building-form">
+						<div class="ui-field-contain">
+				            <select class="select-native-4" id="select-native-4" onchange="changeFunc(value); checkInformation(value);">
+				            	<option>Wybierz zabytek/miejsce:</option>
+				            	<optgroup label="Zabytki/miejsca">
+						            <option value="1">Wawel</option>
+							        <option value="2">Smocza Jama</option>
+							        <option value="3">Kościół św. Piotra i Pawła</option>
+							        <option value="4">Kościół Mariacki</option>
+									<option value="5">Rynek Główny</option>
+							        <option value="6">Sukiennice</option>
+							        <option value="7">Wieża Ratuszowa</option>
+							        <option value="8">Brama floriańska</option>
+									<option value="9">Planty</option>
+							        <option value="10">Barbakan Krakowski</option>
+							        <option value="11">Teatr im.Juliusza Słowackiego</option>
+							        <option value="12">Plan Szczepański</option>
+									<option value="13">Okno Papieskie</option>
+							        <option value="14">Uniwersytet Jagieloński</option>
+				            	</optgroup>
+
+				             </select>
+						</div>
+					</form>
+    			</div>
+
+    			<div class="col2">
+					<button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="onBuildingActivityReady();"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
+    			</div>
+			</div>	
+		</div>
 
 </body>
 </html>
