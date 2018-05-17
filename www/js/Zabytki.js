@@ -27,20 +27,6 @@ function changeFunc($value) {
     draw13();
   }else if ($value == "14"){
     draw14();
-  }else if ($value == "15"){
-    draw15();
-  }else if ($value == "16"){
-    draw16();
-  }else if ($value == "17"){
-    draw17();
-  }else if ($value == "18"){
-    draw18(); 
-  }else if ($value == "19"){
-    draw19();
-  }else if ($value == "20"){
-    draw20(); 
-  }else if ($value == "21"){
-    draw21();
   }  
 }
 
