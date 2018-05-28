@@ -1,81 +1,103 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-	<script src="cordova.js"></script>
-	<script src="js/Zabytki.js"></script>
-	<script src="js/database.js"></script>
-	<script src="js/jquery-2.1.4.min.js"></script>
-    <script src="js/jquery.mobile-1.4.5.min.js"></script>
-
-    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-</head>
-
-<body onload="init()">
-
-<!-- Main page -->
-<div data-role="page" id="Page1">
-	<div id="wrapper">
-		<h1 class="Witaj"><img class="logo" src="img/krk1.jpg" alt="">
-			<br style="clear: both;">
-				"Witamy w Krakowie"
-		</h1>
-		<ul class="nav">
-			<a href="#firstActiviy">
-				<li class="bt">
-					<img class="icon" src="img/zabytki.jpg" width="30%" height"30%" alt="">
-						Zabytki
-				</li>
-			</a>
-
-			<a href="secondActivity">
-				<li class="bt">
-					<img class="icon" src="img/qr.png" width="30%" height="30%" alt="">
-						Skaner QR
-				</li>
-			</a>
-
-			<a href="thirdActivity">
-				<li class="bt">
-					<img class="icon" src="img/mapa.png" width="30%" height="30%" alt="">
-						Nawigacja
-				</li>
-			</a>
-
-			<a href="#sixthActivity" onclick="onContactsActivityReady();">
-				<li class="bt">
-					<img class="icon" src="img/tele.jpg" width="30%" heigth="30%" alt="">
-							Kontakty
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<script src="cordova.js"></script>
+		<script src="js/zabytki.js"></script>
+		<script src="js/qrHandler.js"></script>
+		<script src="js/navigationandwebpagesHandler.js"></script>
+		<script src="js/database.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/Visit.css" />
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+	<body>
+		<!-- Main page -->
+		<div data-role="page" id="pageone">
+			<div id="wrapper">
+				<h1 class="rerum"><img class="logo" src="img/krk1.jpg" alt="">
+					<br style="clear: both;">
+					"Witamy w Krakowie"
+				</h1>
+				<ul class="nav">
+					<a href="#firstActivity">
+						<li class="bt">
+							<img class="icon" src="img/zabytki.jpg" width="30%" heigth="30%" alt="">
+							Zabytki
 						</li>
 					</a>
 
+
+					<br style="clear: both;">
+
+					<a href="#secondActivity">
+						<li class="bt">
+							<img class="icon" src="img/qr.png" width="30%" heigth="30%" alt="">
+							Skaner QR
+						</li>
+					</a>
+
+					<a href="#fourthActivity">
+						<li class="bt">
+							<img class="icon" src="img/navigation.png" width="30%" heigth="30%" alt="">
+							Nawigacja
+						</li>
+					</a>
+
+					<br style="clear: both;">
+
+
+					<a href="#sixthActivity" onclick="onContactsActivityReady();">
+						<li class="bt">
+							<img class="icon" src="img/tele.jpg" width="30%" heigth="30%" alt="">
+							Kontakty
+						</li>
+					</a>
+				</ul>
+			</div>
+
+			<div class="grid">
+				<div class="cell">
+					<a onclick="loadPage('https://pl-pl.facebook.com/wwwKrakowPL/');"><img  src="img/facebook.png"  alt=""></a>
+				</div>
+				<div class="cell">
+					<a onclick="loadPage('https://pl.wikipedia.org/wiki/Krak%C3%B3w');"><img  src="img/google.png" alt=""></a>
+				</div>
+				<div class="cell">
+			  		<a onclick="loadPage('https://www.youtube.com/user/wwwkrakowpl');"><img src="img/youtube.png" alt=""></a>
+			  	</div>
+			  </div>
+		</div>
+
 <!-- Start of first page -->
-		<div data-role="page" id="firstActivity">
+		<div data-role="page" id="firstActivity" >
 
 			<div data-role="header">
 				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
-				<h1>Informacje o zabytkach</h1>
+ 
+				<h1>Zabytki/Miejsca</h1>
 			</div>
-			<div class="options">
+			<div class="map-options">
     			<div class="col1">
     				<form class="building-form">
 						<div class="ui-field-contain">
 				            <select class="select-native-4" id="select-native-4" onchange="changeFunc(value); checkInformation(value);">
 				            	<option>Wybierz zabytek/miejsce:</option>
-				            	<optgroup label="Zabytki/miejsca">
+				            	<optgroup label="Zabytki">
 						            <option value="1">Wawel</option>
 							        <option value="2">Smocza Jama</option>
-							        <option value="3">Kościół św. Piotra i Pawła</option>
-							        <option value="4">Kościół Mariacki</option>
-									<option value="5">Rynek Główny</option>
-							        <option value="6">Sukiennice</option>
-							        <option value="7">Wieża Ratuszowa</option>
-							        <option value="8">Brama floriańska</option>
-									<option value="9">Planty</option>
-							        <option value="10">Barbakan Krakowski</option>
-							        <option value="11">Teatr im.Juliusza Słowackiego</option>
-							        <option value="12">Plan Szczepański</option>
+							        <option value="3">Kościół św. Apostołów Piotra i Pawła</option>
+							        <option value="4">Rynek Główny</option>
+									<option value="5">Sukiennice</option>
+							        <option value="6">Wieża Ratuszowa</option>
+							        <option value="7">Kościół Mariacki</option>
+							        <option value="8">Brama Floriańska</option>
+									<option value="9">Barbakan Krakowski</option>
+							        <option value="10">Planty</option>
+							        <option value="11">Teatr im. Juliusza Słowackiego</option>
+							        <option value="12">Plac Szczepański</option>
 									<option value="13">Okno Papieskie</option>
 							        <option value="14">Uniwersytet Jagieloński</option>
 				            	</optgroup>
@@ -88,8 +110,287 @@
     			<div class="col2">
 					<button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="onBuildingActivityReady();"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
     			</div>
-			</div>	
+			</div>
+			
+  			<div class="canvas">
+          		<canvas id="canvas" class="canvas-position" width="0" height="0" style="position: absolute"></canvas>
+          		<script type="text/javascript">
+   				draw();
+				</script>
+        	</div>
 		</div>
 
-</body>
+		<!-- Start of second page -->
+		<div data-role="page" id="secondActivity">
+
+			<div data-role="header">
+			<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+				<h1>QR Code</h1>
+			</div>
+
+	  		<div class="info">
+	  			<h2>
+	  				<br style="clear: both;">
+	  				Naciśnij przycisk poniżej i zeskanuj specjalnie oznaczony kod QR naszej aplikacji, aby wyświetlić informacje.
+	  			</h2>
+	  		</div>
+
+	  		<div class="info2">
+		  			<h2>
+		  				Przykładowy kod QR
+		  			</h2>
+	  		</div>
+	     	<img src = "img/przyklad.png" width="50%" heigth="50%">   	
+
+			<div data-role="content">
+	        	<p>
+	            	<a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Skanuj</button></a>
+	        	</p>
+	    	</div>
+		</div>
+
+		<!-- Start of third page -->
+		<div data-role="page" id="thirdActivity">
+
+			<div data-role="header">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>				
+				<h1>Trzecia aktywność</h1>
+			</div>
+		</div>
+
+		<!-- Start of fourth page -->
+		<div data-role="page" id="fourthActivity">
+
+			<div data-role="header" data-theme="a">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>				
+    			<h1>Nawigacja</h1>
+  			</div>
+
+  			<div class="info">
+  				<h2>
+  					Zagubiony?
+  					<br style="clear: both;">
+  					Naciśnij przycisk nawiguj, aby szybko uzyskać trasę z Twojej lokalizacji do ważnych zabytków, bądź przydatnych miejsc w Krakakowie.
+  				</h2>
+  			</div>
+			<div class="grid">
+				
+				<div class="mapcontainer">
+				<img src = "img/wawelnavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Wawel
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0540529,19.9332236');">Nawiguj</a>
+			  	</div>
+
+				<div class="mapcontainer">
+				<img src = "img/smoknavi.jpg" width="80%" heigth="80%">
+				</div>
+				<div class="cell">
+					Smocza Jama
+				</div>
+
+				<div class="cell">
+					<a class="button" onclick="checkLocalization('50.053523,19.9332453');">Nawiguj</a>
+				</div>
+
+				<div class="mapcontainer">
+				<img src = "img/piotrpawelnavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Kościół św. Piotra i Pawła
+				</div>
+
+				<div class="cell">
+					<a class="button" onclick="checkLocalization('50.055766,19.9366305');">Nawiguj</a>
+				</div>
+
+				<div class="mapcontainer">
+				<img src = "img/ryneknavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Rynek Główny
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0616329,19.9349623');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/sukienicenavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Sukiennice
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0600848,19.9369095');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/wiezanavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Wieża Ratuszowa
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0608631,19.9346671');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/mariackinavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Kościół Mariacki
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0611868,19.9361263');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/bramanavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Brama Floriańska
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0632462,19.9384437');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/barbakannavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Barbakan Krakowski
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0632462,19.9384437');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/plantynavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Planty
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0598529,19.9388204');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/teatrnavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Teater im. Juliusza Słowackiego
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0627273,19.9409566');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/szczepannavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Plac Szczepański
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0637633,19.9343455');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/oknonavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Okno Papieskie
+				</div>
+
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0594598,19.9330174');">Nawiguj</a>
+			  	</div>
+				
+				<div class="mapcontainer">
+				<img src = "img/ujnavi.jpg" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Uniwersytet Jagieloński
+				</div>
+				
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0605688,19.9316978');">Nawiguj</a>
+			  	</div>
+
+			</div>
+
+		</div>
+
+		
+
+		<!-- Start of sixth page -->
+		<div data-role="page" id="fifthActivity">
+
+			<div data-role="header" data-theme="a">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+    			<h1>Kontakty</h1>
+  			</div>
+  			 <div data-role="content">
+  			 	<div class="info3">
+		  			<h2>
+		  				Tutaj znajdziesz przydatne kontakty.
+		  				<br style="clear: both;">
+		  				Aby szybko wybrać numer lub napisać maila do wystarczy, że naciśniesz numer/adres wybranej osoby.
+		  			</h2>
+		  		</div>
+
+     			<ul id="contacts">
+    			</ul>
+  			</div>
+		</div>
+
+		<!-- Start of building page -->
+		<div data-role="page" id="buildingInformationActivity">
+
+			<div data-role="header">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+				<h1>Informacje o miejscu</h1>
+			</div>
+			<div data-role="content">
+				<h1 id="buildingName">
+				</h1>
+				<h1 id="buildingPhoto">
+				</h1>
+				<h1 id="buildingLocalization">
+				</h1>
+
+				<h4 id="buildingRooms">
+				</h4>
+				<br>
+
+				<h4 id="buildingUsefulPlaces">
+				</h4>
+  			</div>
+		</div>
+	</body>
 </html>
